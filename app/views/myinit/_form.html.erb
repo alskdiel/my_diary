@@ -1,0 +1,10 @@
+<%= simple_form_for(@post) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :content, class: 'mypost' %>
+
+  </div>
+  <div class=''>
+  <%= f.button :submit, class: 'small_button' %>
+
+  </div>
+<% end %>

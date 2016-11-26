@@ -1,0 +1,55 @@
+<div class='head'>
+  <div class='head_left'>total: <p id='total-posts'><%=@total_p%></p></br>
+  <% if user_signed_in? %>
+    <%= current_user.email %><br>
+  </div>
+  <div class='button-black'>
+    <%= link_to "Sign out", destroy_user_session_path, class: 'a-bb',  method: :delete, data: { confirm: "Are you sure?" } %>
+  </div>  
+  <% else %>
+  </div>
+  <div class='button-gray'>
+    <%= link_to "Sign in", new_user_session_path, class: 'a-bg' %>
+  </div>
+  <% end %>
+</div>
+
+<div class='body'>
+  <div class='mnys'>
+    <div class='backward'><<</div>
+    <div class='date'>
+        <%= content_tag(:span, "", class: 'yrs') %><%= content_tag(:span, "", class: 'mon') %>
+    </div>
+    <div class='forward'>>></div>
+  </div>
+  <div class='days'>
+  </div>
+  <div class='post'>
+    <div>
+      <p class='written-date'>updated at </p>
+    </div>
+    <div>
+      <p class='weather w-selected' value='1'>sunny</p>
+      <p class='weather' value='2'>cloudy</p>
+      <p class='weather' value='3'>rainy</p>
+      <p class='weather' value='4'>snowy</p>
+    </div>
+    <div>
+      <%= content_tag(:textarea, "", class: 'mypost') %>
+    </div>
+    <div>
+      <% if user_signed_in? %>
+        <%= content_tag(:button, "Save", class: 'submit-button') %>
+      <% else %>
+        <div class='button-signup'>
+          <%= link_to "Sign up", new_user_registration_path, class: 'a-bb' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class='footer'>
+
+</div>
+
